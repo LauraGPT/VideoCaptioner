@@ -15,6 +15,8 @@ pip install 'videocaptioner[sensevoice]'  # 可选：本地 SenseVoice/FunASR �
 
 SenseVoice extra 会安装 FunASR、PyTorch 和 torchaudio。GPU 用户如需特定 CUDA 构建，请先按 [PyTorch 官方说明](https://pytorch.org/get-started/locally/)安装相互匹配的 PyTorch 与 torchaudio。
 
+SenseVoice 在本机处理音频，但模型加载可能访问 ModelScope。除识别模型外，还会单独加载 `fsmn-vad`；`--sensevoice-model` 只替换识别模型，指定本地路径不能单独保证完全离线运行。
+
 免费功能（必剪语音识别、必应/谷歌翻译）**无需任何配置，安装即用**。
 
 ## CLI 命令行

@@ -65,6 +65,12 @@ videocaptioner transcribe <文件> [选项]
 | `-o PATH` | 输出文件或目录路径 |
 | `--format` | 输出格式：`srt`(默认) `ass` `txt` `json` |
 
+SenseVoice 使用说明：
+
+- 音频识别在本机运行，模型加载可能访问 ModelScope 下载或检查权重。识别模型与 `fsmn-vad` 分别加载；`--sensevoice-model` 只替换识别模型，不替换 VAD，因此仅指定本地识别模型路径不能保证完全离线运行。
+- `--word-timestamps` 优先使用模型返回的词与时间戳对齐结果；缺少有效对齐时会回退到句子或整段时间范围，不会凭空生成词级时间戳。
+- 本地识别不代表整个 `process` 流程都在本地运行。字幕优化和翻译会按配置调用相应服务，使用外部服务时可能发送转录文本。
+
 ---
 
 ### `subtitle` — 字幕优化与翻译
